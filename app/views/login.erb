@@ -1,0 +1,9 @@
+<% if @error %>
+  <h3><%= @error %></h3>
+<% end %>
+
+<form action="/login" method="post">
+  <input class="credential-entry-field" type="text" name="user_credentials[email]" placeholder="Email Address">
+  <input class="credential-entry-field" type="password" name="user_credentials[password]" placeholder="Password">
+  <input class="submit-button" type="submit" value="Log in">
+</form>

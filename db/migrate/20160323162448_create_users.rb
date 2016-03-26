@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :email
       t.string    :image_path
       t.string    :bio
-
+      t.string    :password_hash
       t.integer   :kill_count
       t.integer   :game_count
       t.integer   :win_count
