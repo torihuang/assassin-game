@@ -9,11 +9,12 @@ gem 'sinatra-contrib'
 
 # Use Thin for our web server
 gem 'thin'
-
+gem 'bcrypt'
 gem 'activesupport', '~>4.2'
 gem 'activerecord', '~>4.2'
 
 gem 'rake'
+gem 'pry'
 
 gem 'shotgun'
 

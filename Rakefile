@@ -93,9 +93,9 @@ namespace :db do
     exec("createdb #{DB_NAME}")
   end
 
-  desc "Drop the database at #{DB_NAME}"
+  desc "DROP THE BASE #{DB_NAME}"
   task :drop do
-    puts "Dropping database #{DB_NAME}..."
+    puts "DROP THE BASE#{DB_NAME}..."
     rm_f APP_ROOT.join('db', APP_NAME + "-test.db").to_s
     exec("dropdb #{DB_NAME}")
   end
@@ -129,7 +129,7 @@ end
 
 desc 'Start IRB with application environment loaded'
 task "console" do
-  exec "irb -r./config/environment"
+  exec "pry -r./config/environment"
 end
 
 desc "Run the specs"
