@@ -19,6 +19,6 @@ gem 'pry'
 gem 'shotgun'
 
 group :test do
-  gem 'faker'
+  gem 'faker', '~>1.6.3'
   gem 'rspec'
 end
