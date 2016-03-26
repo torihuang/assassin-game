@@ -89,12 +89,14 @@ namespace :db do
   desc "Create the database at #{DB_NAME}"
   task :create do
     puts "Creating database #{DB_NAME} if it doesn't exist..."
+    touch APP_ROOT.join('db', APP_NAME + "-test.db").to_s
     exec("createdb #{DB_NAME}")
   end
 
   desc "Drop the database at #{DB_NAME}"
   task :drop do
     puts "Dropping database #{DB_NAME}..."
+    rm_f APP_ROOT.join('db', APP_NAME + "-test.db").to_s
     exec("dropdb #{DB_NAME}")
   end
 

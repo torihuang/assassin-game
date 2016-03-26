@@ -11,7 +11,7 @@ class CreateGames < ActiveRecord::Migration
       t.datetime  :start_date
       t.datetime  :end_date
 
-      t.boolean   :in_play?
+      t.string    :status
 
       t.integer   :winner_id
       t.integer   :creator_id

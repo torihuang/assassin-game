@@ -1,3 +1,5 @@
 class Enrollment < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :user
+  belongs_to :game
+  belongs_to :target, class_name: 'User'
 end

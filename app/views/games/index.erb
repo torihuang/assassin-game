@@ -1,0 +1,15 @@
+<h3>Join a Game Near You</h3>
+
+<% @games.each do |game| %>
+<div class='game_summary'>
+  <h4><%= game.name %></h4>
+  <h5><%= game.tagline %></h5>
+  <h5><%= game.city %>, <%= game.state %>
+  <img class='game_image' src=<%= game.image_path %>>
+  <p><%= game.description %></p>
+  <h4><%= game.start_date %> TO <%= game.end_date %></h4>
+  <form class="button" action='/' method='get'>
+    <input type='submit' value='Join' name='join_game_button'>
+  </form>
+</div>
+<% end %>
