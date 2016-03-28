@@ -11,6 +11,7 @@ class CreateGames < ActiveRecord::Migration
       t.datetime  :start_date
       t.datetime  :end_date
 
+      # scheduled, active, completed, aborted
       t.string    :status
 
       t.integer   :winner_id
