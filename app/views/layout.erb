@@ -18,18 +18,18 @@
   <title>Assassin</title>
 </head>
 <body>
-  <h1>Assassin</h1>
+  <h1><a href="/">Assassin</a></h1>
   <h2>Kill or be killed... with friends!</h2>
   <nav>
     <ul>
-      <a href="/"><li>Home</li></a>
       <a href="#"><li>Games</li></a>
       <a href="#"><li>How it Works</li></a>
       <% if session[:user_id] %>
+        <a href="/users/<%= current_user.id %>"><li><%= current_user.nickname %></li></a>
         <a href="/logout"><li>Logout</li></a>
       <% else %>
-        <a href="/login"><li>Login</li></a>
-        <a href="/register"><li>Register</li></a>
+        <a href="/session/new"><li>Login</li></a>
+        <a href="/users/new"><li>Register</li></a>
       <% end %>
     </ul>
   </nav>

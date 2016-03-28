@@ -7,18 +7,24 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
-# Use Thin for our web server
-gem 'thin'
-gem 'bcrypt'
-gem 'activesupport', '~>4.2'
-gem 'activerecord', '~>4.2'
+gem 'activesupport', '~>4.2.0'
+gem 'activerecord', '~>4.2.0'
 
 gem 'rake'
-gem 'pry'
 
 gem 'shotgun'
 
+gem 'bcrypt'
+
 group :test do
+  gem 'shoulda-matchers'
+  gem 'rack-test'
+  gem 'rspec', '~>3.0'
+  gem 'capybara'
+  gem 'database_cleaner', '~> 1.4.1'
+end
+
+group :test, :development do
+  gem 'factory_girl'
   gem 'faker'
-  gem 'rspec'
 end

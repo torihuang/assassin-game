@@ -1,6 +1,4 @@
 require 'rake'
-require 'rspec/core/rake_task'
-
 
 require ::File.expand_path('../config/environment', __FILE__)
 
@@ -75,7 +73,6 @@ namespace :generate do
     File.open(path, 'w+') do |f|
       f.write(<<-EOF.strip_heredoc)
         require 'spec_helper'
-
         describe #{name} do
           pending "add some examples to (or delete) #{__FILE__}"
         end
@@ -86,18 +83,19 @@ namespace :generate do
 end
 
 namespace :db do
-  desc "Create the database at #{DB_NAME}"
+  desc "Drop, create, and migrate the database"
+  task :reset => [:drop, :create, :migrate]
+
+  desc "Create the databases at #{DB_NAME}"
   task :create do
-    puts "Creating database #{DB_NAME} if it doesn't exist..."
-    touch APP_ROOT.join('db', APP_NAME + "-test.db").to_s
-    exec("createdb #{DB_NAME}")
+    puts "Creating development and test databases if they don't exist..."
+    system("createdb #{APP_NAME}_development && createdb #{APP_NAME}_test")
   end
 
-  desc "DROP THE BASE #{DB_NAME}"
+  desc "Drop the database at #{DB_NAME}"
   task :drop do
-    puts "DROP THE BASE#{DB_NAME}..."
-    rm_f APP_ROOT.join('db', APP_NAME + "-test.db").to_s
-    exec("dropdb #{DB_NAME}")
+    puts "Dropping development and test databases..."
+    system("dropdb #{APP_NAME}_development && dropdb #{APP_NAME}_test")
   end
 
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
@@ -109,30 +107,44 @@ namespace :db do
     end
   end
 
+  desc "rollback your migration--use STEP=number to step back multiple times"
+  task :rollback do
+    step = (ENV['STEP'] || 1).to_i
+    ActiveRecord::Migrator.rollback('db/migrate', step)
+    Rake::Task['db:version'].invoke if Rake::Task['db:version']
+  end
+
   desc "Populate the database with dummy data by running db/seeds.rb"
   task :seed do
     require APP_ROOT.join('db', 'seeds.rb')
-  end
-
-  desc "rollback your migration--use STEPS=number to step back multiple times"
-  task :rollback do
-    steps = (ENV['STEPS'] || 1).to_i
-    ActiveRecord::Migrator.rollback('db/migrate', steps)
-    Rake::Task['db:version'].invoke if Rake::Task['db:version']
   end
 
   desc "Returns the current schema version number"
   task :version do
     puts "Current version: #{ActiveRecord::Migrator.current_version}"
   end
+
+  namespace :test do
+    desc "Migrate test database"
+    task :prepare do
+      system "rake db:migrate RACK_ENV=test"
+    end
+  end
 end
 
 desc 'Start IRB with application environment loaded'
 task "console" do
-  exec "pry -r./config/environment"
+  exec "irb -r./config/environment"
 end
 
-desc "Run the specs"
-RSpec::Core::RakeTask.new(:spec)
 
-task :default  => :specs
+# In a production environment like Heroku, RSpec might not
+# be available.  To handle this, rescue the LoadError.
+# https://devcenter.heroku.com/articles/getting-started-with-ruby-o#runtime-dependencies-on-development-test-gems
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+end
+
+task :default  => :spec
