@@ -1,0 +1,15 @@
+<% if @errors %>
+  <h3>Oh no, something went wrong...</h3>
+  <% @errors.each do |error| %>
+    <p class='error'><%= error %></p>
+  <% end %>
+<% end %>
+
+<form action="/users" method="post">
+  <input class="credential-entry-field" type="text" name="user_credentials[first_name]" placeholder="First Name">
+  <input class="credential-entry-field" type="text" name="user_credentials[last_name]" placeholder="Last Name">
+  <input class="credential-entry-field" type="text" name="user_credentials[nickname]" placeholder="Assassin Alias">
+  <input class="credential-entry-field" type="text" name="user_credentials[email]" placeholder="Email">
+  <input class="credential-entry-field" type="password" name="user_credentials[password]" placeholder="Password">
+  <input class="submit-button" type="submit" value="Log in">
+</form>

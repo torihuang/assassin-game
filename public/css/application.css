@@ -1,0 +1,138 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+#logo-and-tagline {
+  margin-right: 20%;
+  margin-left: 20px;
+  text-align: left;
+}
+
+#logo {
+}
+
+#tagline {
+}
+
+nav {
+  float: right;
+  width: 20%;
+  margin-top: 35px;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  text-align: right;
+}
+
+
+/*USER SHOW PAGE*/
+
+/*PROFILE*/
+
+.user-profile-summary {
+  background-color: gray;
+  max-width: 60%;
+  margin: 20px auto;
+  overflow: auto;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.profile-pic-large {
+  width: 50%;
+  float: left;
+}
+
+.user-profile-text {
+  line-height: 1em;
+  padding: 20px;
+}
+
+.user-show-page-name {
+  font-size: 30px;
+}
+
+.user-show-page-aka {
+  font-size: 20px;
+}
+
+.user-show-page-nickname {
+  font-size: 30px;
+}
+
+/*TABLE*/
+
+.user-show-page-stats {
+  clear: both;
+}
+
+.user-show-page-stats table {
+  border: 1px solid black;
+  width: 60%;
+  margin: 0px auto;
+}
+
+.user-show-page-stats table td {
+  border: 1px solid black;
+  margin: 0px auto;
+}
+
+/*GAME*/
+.user-show-page-enrollments {
+  clear: both;
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: gray;
+  overflow: auto;
+}
+
+.user-show-page-enrollments h1 {
+  font-size: 20px;
+}
+
+.user-show-page-enrollments h2 {
+  font-size: 16px;
+}
+
+.user-show-page-games {
+  width: 50%;
+  float: left;
+  padding: 3px;
+}
+
+.game-image-small {
+  width: 100px;
+}
+
+.user-show-page-target {
+  border-left: 1px solid black;
+  margin-left: 50%;
+  padding: 3px;
+}
+
+.target-image-large {
+  max-width: 230px;
+  max-height: 200px;
+}
