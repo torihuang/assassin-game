@@ -91,14 +91,10 @@ DEPENDENCIES
   activerecord (~> 4.2.0)
   activesupport (~> 4.2.0)
   bcrypt
-<<<<<<< HEAD
   capybara
   database_cleaner (~> 1.4.1)
   factory_girl
-  faker
-=======
   faker (~> 1.6.3)
->>>>>>> master
   pg
   rack-test
   rake

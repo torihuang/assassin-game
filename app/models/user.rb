@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  validates :email, uniqueness: true, presence: true
+  validates :first_name, :last_name, :nickname, presence: true
+
   has_many :targets, foreign_key: :target_id, class_name: 'Enrollment'
   has_many :enrollments
   has_many :wins, foreign_key: :winner_id, class_name: 'Game'
@@ -22,5 +25,9 @@ class User < ActiveRecord::Base
     else nil
     end
 
+  end
+
+  def games_created_count
+    return games_created.count
   end
 end

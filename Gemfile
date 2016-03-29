@@ -19,7 +19,7 @@ gem 'bcrypt'
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
-  gem 'rspec', '~>3.0'
+  # gem 'rspec', '~>3.0'
   gem 'capybara'
   gem 'database_cleaner', '~> 1.4.1'
 end
@@ -27,5 +27,5 @@ end
 group :test, :development do
   gem 'factory_girl'
   gem 'faker', '~>1.6.3'
-  gem 'rspec'
+  gem 'rspec', '~>3.0'
 end

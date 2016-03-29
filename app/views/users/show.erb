@@ -1,0 +1,30 @@
+<section class='user-profile-summary'>
+  <h1><%= current_user.first_name %> <%= current_user.last_name %><br><span id='aka'>AKA<span><br><%= current_user.nickname %></h1>
+
+  <img class = 'profile-pic-large' src='<%= current_user.image_path %>'>
+
+  <p><%= current_user.bio %></p>
+</section>
+
+<table>
+  <th>
+    <td>Games Created</td>
+    <td>Games Played</td>
+    <td>Kills</td>
+    <td>Wins</td>
+  </th>
+  <tr>
+    <td><%= current_user.games_created_count %></td>
+    <td><%= current_user.game_count %></td>
+    <td><%= current_user.kill_count %></td>
+    <td><%= current_user.win_count %></td>
+  </tr>
+</table>
+
+<% current_user.enrollments.each do |enrollment| %>
+  <% game = enrollment.game %>
+  <h4><%= game.name %></h4>
+  <h5><%= game.tagline %></h5>
+  <h5><%= game.city %>, <%= game.state %>
+  <img class='game-image-small' src=<%= game.image_path %>>
+<% end %>
