@@ -1,22 +1,50 @@
 <h3>Join a Game Near You</h3>
 
+<section class='scheduled-games'>
 <h4>Scheduled Games</h4>
 
 <% @scheduled_games.each do |game| %>
-<div class='game_summary'>
-  <h4><%= game.name %></h4>
-  <h5><%= game.tagline %></h5>
-  <h5><%= game.city %>, <%= game.state %>
-  <img class='game_image' src=<%= game.image_path %>>
-  <p><%= game.description %></p>
-  <h4><%= game.start_date %> TO <%= game.end_date %></h4>
-  <form class="button" action='/' method='get'>
-    <input type='submit' value='Join' name='join_game_button'>
-  </form>
-</div>
+<section class='game_summary'>
+  <section class='game-index-page-interact-buttons'
+    <img class='game-image-small' src=<%= game.image_path %>>
+  </section>
+  <section class='game-index-page-games'>
+    <h1><%= game.name %></h1>
+    <h2><%= game.tagline %></h2>
+    <h2><%= game.city %>, <%= game.state %></h2>
+    <h1><%= game.start_date %> TO <%= game.end_date %></h1>
+    <form class="button" action='/' method='get'>
+      <input type='submit' value='Join' name='join_game_button'>
+    </form>
+  </section>
+</section>
 <% end %>
+</section>
+
+<section class='active-games'>
+<h4>Active Games</h4>
+
+<% @active_games.each do |game| %>
+<section class='game_summary'>
+  <section class='game-index-page-interact-buttons'
+    <img class='game-image-small' src=<%= game.image_path %>>
+  </section>
+  <section class='game-index-page-games'>
+    <h1><%= game.name %></h1>
+    <h2><%= game.tagline %></h2>
+    <h2><%= game.city %>, <%= game.state %></h2>
+    <h1><%= game.start_date %> TO <%= game.end_date %></h1>
+    <form class="button" action='/' method='get'>
+      <input type='submit' value='Join' name='join_game_button'>
+    </form>
+  </section>
+</section>
+<% end %>
+</section>
 
 <h4>Active Games</h4>
+
+
 
 <% @active_games.each do |game| %>
 <div class='game_summary'>

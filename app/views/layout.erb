@@ -21,7 +21,7 @@
   <header>
     <nav>
       <ul>
-        <a href="#"><li>Games | </li></a>
+        <a href="/games"><li>Games | </li></a>
         <a href="#"><li>How it Works | </li></a>
         <% if session[:user_id] %>
           <a href="/users/<%= current_user.id %>"><li><%= current_user.nickname %> | </li></a>
