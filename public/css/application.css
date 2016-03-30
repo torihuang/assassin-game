@@ -15,7 +15,7 @@ header {
 }
 
 #logo-and-tagline {
-  margin-right: 20%;
+  margin-right: 35%;
   margin-left: 20px;
   text-align: left;
 }
@@ -28,7 +28,7 @@ header {
 
 nav {
   float: right;
-  width: 20%;
+  width: 35%;
   margin-top: 35px;
   margin-right: 20px;
 }
@@ -136,3 +136,49 @@ nav ul li {
   max-width: 230px;
   max-height: 200px;
 }
+
+
+
+/*GAME SHOW PAGE*/
+
+/*GAMES*/
+.scheduled-games {
+  margin: 20px auto;
+}
+.active-games {
+  clear: both;
+  margin: 20px auto;
+}
+
+.game_summary {
+  max-width: 400px;
+  height: 300px;
+  float: left;
+  margin: 20px 20px;
+  background-color: gray;
+  overflow: auto;
+}
+
+.game_summary h1 {
+  font-size: 20px;
+}
+
+.game_summary h2 {
+  font-size: 16px;
+}
+
+.game-image-small {
+  float: left;
+  width: 50%;
+}
+
+.game-index-page-games {
+  margin-left: 50%;
+  padding: 3px;
+}
+
+.game-index-page-games {
+  border-left: 1px solid black;
+  margin-left: 50%;
+  padding: 3px;
+}=
