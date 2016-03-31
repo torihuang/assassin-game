@@ -1,0 +1,45 @@
+<!-- Input Hash
+{
+  type: Either :user or :game
+  details: {
+    title,
+    tagline,
+    city,
+    state,
+    start_date,
+    end_date,
+    status,
+    image_path
+  }
+  image: {
+    title,
+    tagline,
+    image,
+    buttons: {
+      {action, name, value, method}
+    }
+  }
+}
+ -->
+
+<section class='mini-card-container <%= mini_card_hash[:status] %>'>
+  <section class='left-side'>
+    <h1><%= mini_card_hash[:title] %></h1>
+    <h2><%= mini_card_hash[:tagline] %></h2>
+    <h2><%= mini_card_hash[:city] %>, <%= mini_card_hash[:state] %></h2>
+    <h2><%= mini_card_hash[:start_date] %> to <%= mini_card_hash[:end_date] %></h2>
+    <img class='game-image-small' src=<%= mini_card_hash[:image_path] %>>
+  </section>
+  <section class='right-side'>
+    <% if enrollment.target %>
+      <h1>Next Target</h1>
+      <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
+      <img class='target-image-large' src=<%= enrollment.target.image_path %>>
+  <!--     <h2><%= game.tagline %></h2>
+      <h2><%= game.city %>, <%= game.state %></h2>
+      <%= current_user %> -->
+    <% else %>
+      <%= game.status %>
+    <% end %>
+  </section>
+</section>
