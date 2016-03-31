@@ -5,12 +5,18 @@ count = 0
     User.create(password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, nickname: Faker::Superhero.power, email: Faker::Internet.email, image_path: Faker::Avatar.image, bio: Faker::Lorem.paragraph, kill_count: 0, game_count: 0, win_count: 0)
   end
 
-  new_game = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now)
+  new_game_1 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now)
+
+  new_game_2 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now)
+
+  new_game_3 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now)
 
   10.times do
     user = User.find(sub_count + 1)
     next_id = user.id + 1 unless user.id == User.count
-    Enrollment.create(user: user, game: new_game, target_id: next_id, target_alive?: true, alive?: true)
+    Enrollment.create(user: user, game: new_game_1, target_id: next_id, target_alive?: true, alive?: true)
+    Enrollment.create(user: user, game: new_game_2, target_id: next_id, target_alive?: true, alive?: true)
+    Enrollment.create(user: user, game: new_game_3, target_id: next_id, target_alive?: true, alive?: true)
     sub_count += 1
   end
   count += 1
