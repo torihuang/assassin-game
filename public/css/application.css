@@ -1,3 +1,8 @@
+@font-face {
+  font-family: kremlin;
+  src: url(/fonts/kremlin.ttf);
+}
+
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -6,15 +11,29 @@
 
 body {
   text-align: center;
+  background-color: #F8F6F6;
+}
+
+a {
+  text-decoration: none;
+  color: #DB0404;
+}
+
+a:hover {
+  color: #623737;
 }
 
 header {
+  border-top: solid 40px #DB0404;
+  border-bottom: solid 1px #564E4E;
   width: 100%;
   height: 100%;
-  border: 1px solid black;
+  background-color: white;
+  /*border: 1px solid black;*/
 }
 
 #logo-and-tagline {
+  font-family: kremlin;
   margin-right: 35%;
   margin-left: 20px;
   text-align: left;
@@ -48,7 +67,7 @@ nav ul li {
 /*PROFILE*/
 
 .user-profile-summary {
-  background-color: gray;
+  background-color: #736666;
   max-width: 60%;
   margin: 20px auto;
   overflow: auto;
@@ -104,7 +123,7 @@ nav ul li {
   clear: both;
   max-width: 500px;
   margin: 20px auto;
-  background-color: gray;
+  background-color: #736666;
   overflow: auto;
 }
 
@@ -155,7 +174,7 @@ nav ul li {
   height: 300px;
   float: left;
   margin: 20px 20px;
-  background-color: gray;
+  background-color: #736666;
   overflow: auto;
 }
 

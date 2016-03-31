@@ -9,3 +9,16 @@ get '/games' do
 
   erb :'games/index'
 end
+
+get '/games/:id' do
+  @game = Game.find_by(id: params[:id])
+  if @game
+    erb :'games/show'
+  else
+    erb :'404'
+  end
+end
+
+get '/how_it_works' do
+  erb :how_it_works
+end
