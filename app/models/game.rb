@@ -21,7 +21,14 @@ class Game < ActiveRecord::Base
   end
 
   def assign_targets
-    # random_players = this.players.
+    random_enrollments = self.enrollments.to_a.shuffle
+    random_enrollments.each_with_index do |enrollment, index|
+      puts "index: #{index}"
+      puts "enrollment: #{enrollment.user.id}"
+      next_target = index + 1 >= random_enrollments.length ? random_enrollments[0].user : random_enrollments[index + 1].user
+      enrollment.update(target: next_target)
+      puts "target: #{enrollment.target.id}"
+    end
   end
 
 end

@@ -9,7 +9,7 @@ $(document).ready(function(){
       url: url
     })
     .done(function(response){
-      console.log("HERE");
+
     })
   })
 })
