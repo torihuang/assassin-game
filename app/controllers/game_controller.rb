@@ -10,6 +10,10 @@ get '/games' do
   erb :'games/index'
 end
 
+get '/games/new' do
+  erb :'games/new'
+end
+
 get '/games/:id' do
   @game = Game.find_by(id: params[:id])
   if @game
@@ -17,6 +21,13 @@ get '/games/:id' do
   else
     erb :'404'
   end
+end
+
+post '/games' do
+  @game = Game.new(params[:new_game])
+  @game.creator = current_user
+  @game.status =
+  if @game.save
 end
 
 get '/how_it_works' do

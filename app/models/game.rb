@@ -4,6 +4,7 @@ class Game < ActiveRecord::Base
   has_many :enrollments
   has_many :players, through: :enrollments, source: :user
 
+
   def self.scheduled_games
     Game.where(status: 'scheduled')
   end
