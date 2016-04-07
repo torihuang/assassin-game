@@ -1,4 +1,5 @@
 <div class='new-game-form-container'>
+  <%= erb(:_errors, locals: { errors: @errors }) %>
   <form action="/games" method="post">
     <ul>
       <li><input type="text" name="new_game[name]" placeholder="Name"></li>
