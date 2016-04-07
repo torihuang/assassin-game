@@ -12,6 +12,12 @@
     <h1>Next Target</h1>
     <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
     <img class='target-image-large' src=<%= enrollment.target.image_path %>>
+    <div class="kill-target">
+      <form method="post" action="/enrollments/<%= enrollment.id %>">
+        <input type="hidden" name="_method" value="put">
+        <input type="submit" value="I killed them!">
+      </form>
+    </div>
   <% else %>
     <%= game.status %>
   <% end %>

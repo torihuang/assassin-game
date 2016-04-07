@@ -38,15 +38,11 @@ game = Game.create!(
     email: Faker::Internet.email,
     password: "password",
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    last_name: Faker::Name.last_name,
+    nickname: "Scooter"
     )
 end
 
-users = User.all
-
-3.times do
-  Enrollment.create!(
-    user_id: users.sample.id,
-    game_id: game.id,
-    )
-end
+Enrollment.create!(user_id: 1, game_id: 1, target_id: 2)
+Enrollment.create!(user_id: 2, game_id: 1, target_id: 3)
+Enrollment.create!(user_id: 3, game_id: 1, target_id: 1)
