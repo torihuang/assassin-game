@@ -29,5 +29,5 @@
 
 
 <% current_user.enrollments.each do |enrollment| %>
-  <%= erb 'users/_summary', layout: false, locals: {enrollment: enrollment, game: enrollment.game} %>
+  <%= erb :'users/_summary', layout: false, locals: {enrollment: enrollment, game: enrollment.game} %>
 <% end %>

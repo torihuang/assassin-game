@@ -10,6 +10,16 @@ get '/games' do
   erb :'games/index'
 end
 
+get '/games/:id/start' do
+  game = Game.find_by(id: params[:id])
+  if game
+    game.assign_targets
+    game.status = "active"
+  else
+    erb :'404'
+  end
+end
+
 get '/games/new' do
   erb :'games/new'
 end

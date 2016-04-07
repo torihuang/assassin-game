@@ -34,5 +34,13 @@ class Game < ActiveRecord::Base
     Game.where(status: 'aborted')
   end
 
+  def assign_targets
+    random_enrollments = self.enrollments.to_a.shuffle
+    random_enrollments.each_with_index do |enrollment, index|
+      next_target = index + 1 >= random_enrollments.length ? random_enrollments[0].user : random_enrollments[index + 1].user
+      enrollment.update(target: next_target)
+    end
+  end
+
 end
 
