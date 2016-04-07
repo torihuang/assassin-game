@@ -13,7 +13,8 @@ end
 get '/games/:id/start' do
   game = Game.find_by(id: params[:id])
   if game
-
+    game.assign_targets
+    game.status = "active"
   else
     erb :'404'
   end
