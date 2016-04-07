@@ -1,0 +1,19 @@
+<section class='user-summary'>
+<section class='user-summary-left'>
+  <% game = enrollment.game %>
+  <h1><%= game.name %></h1>
+  <h2><%= game.tagline %></h2>
+  <h2><%= game.city %>, <%= game.state %></h2>
+  <h2><%= game.start_date %> to <%= game.end_date %></h2>
+  <img class='game-image-small' src=<%= game.image_path %>>
+</section>
+<section class='user-summary-right'>
+  <% if enrollment.target %>
+    <h1>Next Target</h1>
+    <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
+    <img class='target-image-large' src=<%= enrollment.target.image_path %>>
+  <% else %>
+    <%= game.status %>
+  <% end %>
+</section>
+</section>
