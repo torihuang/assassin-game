@@ -29,26 +29,5 @@
 
 
 <% current_user.enrollments.each do |enrollment| %>
-<section class='user-show-page-enrollments'>
-  <section class='user-show-page-games'>
-    <% game = enrollment.game %>
-    <h1><%= game.name %></h1>
-    <h2><%= game.tagline %></h2>
-    <h2><%= game.city %>, <%= game.state %></h2>
-    <h2><%= game.start_date %> to <%= game.end_date %></h2>
-    <img class='game-image-small' src=<%= game.image_path %>>
-  </section>
-  <section class='user-show-page-target'>
-    <% if enrollment.target %>
-      <h1>Next Target</h1>
-      <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
-      <img class='target-image-large' src=<%= enrollment.target.image_path %>>
-  <!--     <h2><%= game.tagline %></h2>
-      <h2><%= game.city %>, <%= game.state %></h2>
-      <%= current_user %> -->
-    <% else %>
-      <%= game.status %>
-    <% end %>
-  </section>
-</section>
+  <%= erb 'users/_summary', layout: false, locals: {enrollment: enrollment, game: enrollment.game} %>
 <% end %>

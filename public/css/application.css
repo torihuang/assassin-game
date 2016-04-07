@@ -121,7 +121,7 @@ nav ul li {
 }
 
 /*GAME*/
-.user-show-page-enrollments {
+.user-summary {
   clear: both;
   max-width: 500px;
   margin: 20px auto;
@@ -137,7 +137,7 @@ nav ul li {
   font-size: 16px;
 }
 
-.user-show-page-games {
+.user-summary-left {
   width: 50%;
   float: left;
   padding: 3px;
@@ -147,7 +147,7 @@ nav ul li {
   width: 100px;
 }
 
-.user-show-page-target {
+.user-summary-right {
   border-left: 1px solid #C2BDBD;
   margin-left: 50%;
   padding: 3px;

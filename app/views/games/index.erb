@@ -7,7 +7,7 @@
 
 <% @scheduled_games.each do |game| %>
 <a href='/games/<%= game.id %>' class='game_summary'>
-    <%= erb :'games/_summary', locals: {game: game, button: true} %>
+    <%= erb :'games/_summary', locals: {game: game, button: true}, layout: false %>
 </a>
 <% end %>
 </section>
@@ -17,7 +17,7 @@
 
 <% @active_games.each do |game| %>
 <a href='/games/<%= game.id %>' class='game_summary'>
-    <%= erb :'games/_summary', locals: {game: game, button: false} %>
+    <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
 </a>
 <% end %>
 </section>
@@ -27,7 +27,7 @@
 
 <% @completed_games.each do |game| %>
 <a href='/games/<%= game.id %>' class='game_summary'>
-  <%= erb :'games/_summary', locals: {game: game, button: false} %>
+  <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
 </a>
 <% end %>
 </section>
