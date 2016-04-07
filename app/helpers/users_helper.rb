@@ -4,6 +4,10 @@ module UserHelper
     return User.find(session[:user_id])
   end
 
+  def logged_in?
+    session[:user_id] != nil
+  end
+
   def password_valid(password_input)
     password_is_six_characters = password_input.length >=6
     password_has_special_character = !!/\W/.match(password_input)

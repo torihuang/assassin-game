@@ -33,6 +33,15 @@ get '/games/:id' do
   end
 end
 
+post '/games/:id/enrollments' do
+  @game = Game.find(params[:id])
+  if @game
+    @new_enrollment = Enrollment.create(user: current_user, game: @game)
+  else
+    erb :'404'
+  end
+end
+
 post '/games' do
   @game = Game.new(params[:new_game])
   @game.creator = current_user
