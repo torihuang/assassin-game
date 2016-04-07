@@ -12,6 +12,11 @@
     <h1>Next Target</h1>
     <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
     <img class='target-image-large' src=<%= enrollment.target.image_path %>>
+    <div class="kill-confirm-form">
+      <form method="post" action="/enrollments">
+
+      </form>
+    </div>
   <% else %>
     <%= game.status %>
   <% end %>
