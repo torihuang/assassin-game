@@ -7,3 +7,14 @@ post '/enrollment' do
     @errors = enrollment.errors.full_messages
   end
 end
+
+put '/enrollments/:id' do
+  @enrollment = Enrollment.find(params[:id])
+
+  if enrollment.game.active_player_count > 0
+    # continue game
+  else
+    #end game
+  end
+
+end
