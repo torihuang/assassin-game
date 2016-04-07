@@ -15,6 +15,7 @@ gem 'rake'
 gem 'shotgun'
 
 gem 'bcrypt'
+gem 'faker', '~>1.6.3'
 
 group :test do
   gem 'shoulda-matchers'
@@ -26,6 +27,5 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker', '~>1.6.3'
   gem 'rspec', '~>3.0'
 end
