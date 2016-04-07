@@ -7,3 +7,6 @@ post '/enrollment' do
     @errors = enrollment.errors.full_messages
   end
 end
+
+put '/enrollments/:user_id' do
+end
