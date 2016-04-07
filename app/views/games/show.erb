@@ -1,6 +1,6 @@
 <section id='game-show-page'>
   <% if @game.creator_id == current_user.id && (@game.status == 'scheduled' || @game.status == 'pending') %>
-    <a href='/games/<%= @game.id %>/start' id='start-game-button'>Start Game</a>
+    <a class='game-action-button' href='/games/<%= @game.id %>/start' id='start-game-button'>Start Game</a>
   <% end %>
   <h1><%= @game.name %></h1>
   <h2><%= @game.tagline %></h2>
@@ -11,4 +11,7 @@
   <img class='game-image-large' src=<%= @game.image_path %>>
 
   <p><%= @game.description %></p>
+  <% if logged_in? && !@game.enrolled?(current_user) %>
+    <a class='game-action-button' id='join-game-button' href='/games/<%= @game.id %>/enrollments'>Join</a>
+  <% end %>
 </section>

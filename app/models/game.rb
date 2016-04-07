@@ -34,6 +34,10 @@ class Game < ActiveRecord::Base
     Game.where(status: 'aborted')
   end
 
+  def enrolled?(user)
+    !self.enrollments.includes(:user_id).where('user_id = ?', user.id).empty?
+  end
+
   def assign_targets
     random_enrollments = self.enrollments.to_a.shuffle
     random_enrollments.each_with_index do |enrollment, index|
