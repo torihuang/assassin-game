@@ -4,8 +4,7 @@ class CreateEnrollments < ActiveRecord::Migration
       t.integer   :user_id
       t.integer   :game_id
       t.integer   :target_id
-      # might not need the following
-      # t.boolean   :target_alive?
+      t.boolean   :target_alive?, default:true
       # t.boolean   :alive?
       t.integer   :killed_by_id
 
