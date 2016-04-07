@@ -29,6 +29,6 @@ class User < ActiveRecord::Base
   end
 
   def games_created_count
-    return games_created.count
+    return self.games_created.count
   end
 end

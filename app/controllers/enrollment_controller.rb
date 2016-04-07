@@ -23,7 +23,11 @@ put '/enrollments/:id' do
 
   if enrollment.game.active_player_count > 1
     # continue game
+
   else
     #end game
+    # text all players saying that the game is ended?
+    # mark end date of game with the current date
+    # put game status end
   end
 end
