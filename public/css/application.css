@@ -210,7 +210,7 @@ nav ul li {
   border-left: 1px solid #C2BDBD;
 }
 
-#start-game-button {
+.game-action-button {
   margin-top: 30px;
   border: 2px solid #DB0404;
   border-radius: 5px;
