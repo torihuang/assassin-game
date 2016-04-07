@@ -1,6 +1,6 @@
 <section id='game-show-page'>
   <% if @game.creator_id == current_user.id %>
-    <a href='/games/<%= @game.id %>/start'>Start Game</a>
+    <a href='/games/<%= @game.id %>/start' id='start-game-button'>Start Game</a>
   <% end %>
   <h1><%= @game.name %></h1>
   <h2><%= @game.tagline %></h2>

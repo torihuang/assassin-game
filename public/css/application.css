@@ -198,3 +198,22 @@ nav ul li {
   padding: 3px;
   border-left: 1px solid #C2BDBD;
 }
+
+#start-game-button {
+  margin-top: 30px;
+  border: 2px solid #DB0404;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+  height: 75px;
+  font-size: 30px;
+  background-color: white;
+}
+
+#start-game-button:hover {
+  border: 2px solid #564E4E;
+}
+
+#game-show-page {
+  margin-top: 30px;
+}

@@ -20,5 +20,9 @@ class Game < ActiveRecord::Base
     Game.where(status: 'aborted')
   end
 
+  def assign_targets
+    # random_players = this.players.
+  end
+
 end
 
