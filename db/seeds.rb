@@ -14,9 +14,9 @@ count = 0
   10.times do
     user = User.find(sub_count + 1)
     next_id = user.id + 1 unless user.id == User.count
-    Enrollment.create(user: user, game: new_game_1, target_id: next_id, target_alive?: true, alive?: true)
-    Enrollment.create(user: user, game: new_game_2, target_id: next_id, target_alive?: true, alive?: true)
-    Enrollment.create(user: user, game: new_game_3, target_id: next_id, target_alive?: true, alive?: true)
+    Enrollment.create(user: user, game: new_game_1, target_id: next_id, target_alive?: true)
+    Enrollment.create(user: user, game: new_game_2, target_id: next_id, target_alive?: true)
+    Enrollment.create(user: user, game: new_game_3, target_id: next_id, target_alive?: true)
     sub_count += 1
   end
   count += 1
