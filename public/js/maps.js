@@ -16,7 +16,6 @@ function initMap(latitude, longitude) {
 
 function getLatLng() {
   var address = $(".address").text()
-  console.log(address)
   var addressObject = {"address": address}
   $.ajax({
     url: "/addresses",

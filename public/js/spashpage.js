@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  if ( $('#game-location-map').length ) {
+    getLatLng()
+  }
   if (window.location.pathname == '/') {
     console.log("HERE")
     console.log(window.location.pathname);

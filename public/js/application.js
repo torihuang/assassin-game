@@ -1,4 +1,4 @@
-$(document).ready(function() {
-  getLatLng()
-});
+// $(document).ready(function() {
+//   getLatLng()
+// });
 
