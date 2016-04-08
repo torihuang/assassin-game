@@ -1,16 +1,10 @@
-<section class='game-index-page-interact-buttons'
-    <img class='game-image-small' src=<%= game.image_path %>>
+<section class='game-index-page-interact-buttons'>
+  <img class = 'game-image-small' src='<%= game.image_path %>'>
 </section>
 <section class='game-index-page-games'>
   <h1><%= game.name %></h1>
   <h2><%= game.tagline %></h2>
   <h2 class="latitude"><%= game.location %></h2>
   <h2 class="longitude"><%= game.state %></h2>
-  <h1><%= format_date(game.start_date) %> TO <%= format_date(game.end_date) %></h1>
-  <% if button %>
-  <form class="button" action='/enrollment' method='post'>
-    <input type='hidden' value='<%= game.id %>' name='game_id'>
-    <input type='submit' value='Details' name='join_game_button'>
-  </form>
-  <% end %>
+  <h1><%= format_date(game.start_date) %> to <%= format_date(game.end_date) %></h1>
 </section>

@@ -6,6 +6,7 @@ get '/games' do
   @active_games = Game.active_games
   @completed_games = Game.completed_games
   @scheduled_games = Game.scheduled_games
+  @pending_games = Game.pending_games
 
   erb :'games/index'
 end
