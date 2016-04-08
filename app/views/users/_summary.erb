@@ -8,7 +8,8 @@
   <img class='game-image-small' src=<%= game.image_path %>>
 </section>
 <section class='user-summary-right'>
-  <% if enrollment.target %>
+  <% target = enrollment.target.enrollments.find_by(game_id: game) %>
+  <% if enrollment.target && target.killed_by_id.nil? %>
     <h1>Next Target</h1>
     <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
     <img class='target-image-large' src=<%= enrollment.target.image_path %>>

@@ -40,7 +40,6 @@ put '/enrollments/:id' do
       )
     puts "Congratulations, #{killer}!"
     @game.save
-    # text all players saying that the game is ended?
-    # render a game page?
+    redirect "/games/#{ @game.id }"
   end
 end
