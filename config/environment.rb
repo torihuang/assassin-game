@@ -9,7 +9,7 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 require 'rubygems'
 require 'uri'
 require 'pathname'
-
+require 'dotenv'
 require 'pg'
 require 'active_record'
 require 'logger'
