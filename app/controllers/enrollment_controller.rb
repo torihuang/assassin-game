@@ -1,7 +1,5 @@
 #EB NOTE
 # Currently, it still lists that player's next target from their most recent enrollment on their show page. That's a thing to configure. I tested this code by seeding the DB with 3 users and killing them one after the other, it seems to work. -EB
-
-#changes the player's/killer's enrollment record
 put '/enrollments/:id' do
   @enrollment = Enrollment.find(params[:id])
   killer = @enrollment.user
@@ -14,16 +12,15 @@ put '/enrollments/:id' do
   new_corpse_record = new_corpse.enrollments.find_by(game_id: game.id)
   new_corpse_record.killed_by_id = killer.id
   new_corpse_record.save
+  killer.increment!(:kill_count)
   # binding.pry
-
   message = ""
-
   if @enrollment.game.active_player_count > 1
     # continue game
     killer_record = killer.enrollments.find_by(game_id: game.id)
     killer_record.target = new_corpse_record.target
     killer_record.save
-
+    killer.increment!(:win_count)
     message = "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
     send_texts(game, message)
     redirect "/users/#{killer.id}"
@@ -33,7 +30,7 @@ put '/enrollments/:id' do
     @game.assign_attributes(status: "completed", winner_id: killer.id, end_date: DateTime.now.to_s)
     puts "Congratulations, #{killer}!"
     @game.save
-
+    redirect "/games/#{ @game.id }"
     message = "The game is over, #{killer.nickname} is the winner! Congrats :D"
     send_texts(@game, message)
   end
