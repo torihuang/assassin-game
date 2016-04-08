@@ -3,7 +3,7 @@ ruby '2.2.4'
 
 # PostgreSQL driver
 gem 'pg'
-
+gem 'google-api-client'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'

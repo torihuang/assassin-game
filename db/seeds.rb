@@ -1,4 +1,4 @@
-require 'faker'
+# city and state values have been replaced with lat and long
 
 count = 0
 10.times do
@@ -7,11 +7,11 @@ count = 0
     User.create(password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, nickname: Faker::Superhero.power, email: Faker::Internet.email, image_path: Faker::Avatar.image, bio: Faker::Lorem.paragraph, kill_count: 0, game_count: 0, win_count: 0)
   end
 
-  new_game_1 = Game.create(status: "pending", name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now, creator_id: 1)
+  new_game_1 = Game.create(status: "pending", name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.latitude, state: Faker::Address.longitude, start_date: DateTime.now, end_date: DateTime.now, creator_id: 1)
 
-  new_game_2 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now, creator_id: 2)
+  new_game_2 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.latitude, state: Faker::Address.longitude, start_date: DateTime.now, end_date: DateTime.now, creator_id: 2)
 
-  new_game_3 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.city, state: Faker::Address.state, start_date: DateTime.now, end_date: DateTime.now, creator_id: 3)
+  new_game_3 = Game.create(status: ["scheduled","active","aborted","completed"].sample, name: Faker::Hipster.sentence(2), tagline: Faker::Hipster.sentence(5), description: Faker::Lorem.paragraph, image_path: Faker::Avatar.image, city: Faker::Address.latitude, state: Faker::Address.longitude, start_date: DateTime.now, end_date: DateTime.now, creator_id: 3)
 
   10.times do
     user = User.find(sub_count + 1)
