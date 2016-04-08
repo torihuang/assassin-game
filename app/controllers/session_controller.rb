@@ -1,11 +1,11 @@
 get '/session/new' do
-  erb :login
+  erb :login, layout: false
 end
 
 post '/session' do
   if @user = User.authenticate(params[:user_credentials])
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/games'
   else
     @error = 'Please enter valid email and password'
     erb :'login'
