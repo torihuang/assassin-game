@@ -2,14 +2,13 @@
 # See: http://gembundler.com/bundler_setup.html
 #      http://stackoverflow.com/questions/7243486/why-do-you-need-require-bundler-setup
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
-
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 # Require gems we care about
 require 'rubygems'
 require 'uri'
 require 'pathname'
-
+require 'dotenv'
 require 'pg'
 require 'active_record'
 require 'logger'
@@ -20,6 +19,7 @@ require 'erb'
 require 'bcrypt'
 require 'faker'
 require 'pry'
+require 'net/http'
 
 # require "yaml"
 require "twilio-ruby"
@@ -28,7 +28,7 @@ require "twilio-ruby"
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
-
+Dotenv.load
 configure do
   # By default, Sinatra assumes that the root is the file that calls the configure block.
   # Since this is not the case for us, we set it manually.

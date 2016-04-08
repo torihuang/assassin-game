@@ -6,8 +6,8 @@ class Game < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
+  validates :location, presence: true
+
 
 
   def set_default_status
