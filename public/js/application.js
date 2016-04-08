@@ -1,4 +1,4 @@
-$(document).ready(function() {
-  initMap();
-});
+// $(document).ready(function() {
+//   getLatLng()
+// });
 

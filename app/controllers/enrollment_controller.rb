@@ -37,9 +37,8 @@ put '/enrollments/:id' do
 end
 
 def send_texts(game, message)
-  secret_hash = YAML.load_file("super-secret.yml")
-  account_sid = secret_hash["development"]["twilio_account_sid"]
-  auth_token = secret_hash["development"]["twilio_auth_token"]
+  account_sid = ENV["TWILIOSID"]
+  auth_token = ENV["TWILIOTOKEN"]
   client = Twilio::REST::Client.new account_sid, auth_token
 
   from = "+18478137513"
