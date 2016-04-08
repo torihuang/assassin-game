@@ -228,3 +228,17 @@ nav ul li {
 #game-show-page {
   margin-top: 30px;
 }
+
+form input{
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+form input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
