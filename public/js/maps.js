@@ -5,7 +5,7 @@ function initMap() {
 
   var mapOptions = {
     center: new google.maps.LatLng(latitude, longitude),
-    zoom: 13
+    zoom: 2
   }
 
   console.log(mapBox)

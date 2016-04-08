@@ -191,7 +191,7 @@ nav ul li {
   display: inline-block;
 }
 
-.game-location-map {
+#game-location-map {
   display: inline-block;
   width: 200px;
   height: 200px;
