@@ -1,7 +1,7 @@
 module UserHelper
 
   def current_user
-    return User.find(session[:user_id])
+    return User.find_by(id: session[:user_id])
   end
 
   def logged_in?

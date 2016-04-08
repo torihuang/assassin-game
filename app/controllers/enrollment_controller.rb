@@ -25,11 +25,19 @@ put '/enrollments/:id' do
   new_corpse_record.killed_by_id = killer.id
   new_corpse_record.save
   # binding.pry
+
+  message = ""
+
   if @enrollment.game.active_player_count > 1
     # continue game
     killer_record = killer.enrollments.find_by(game_id: game.id)
     killer_record.target = new_corpse_record.target
     killer_record.save
+
+    puts "KILL"
+    puts "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
+    message = "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
+    send_texts(game, message)
     redirect "/users/#{killer.id}"
   else
     # end game
@@ -40,7 +48,32 @@ put '/enrollments/:id' do
       )
     puts "Congratulations, #{killer}!"
     @game.save
-    # text all players saying that the game is ended?
-    # render a game page?
+
+
+    puts "GAME OVER"
+    puts "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
+    message = "The game is over, #{killer.nickname} is the winner! Congrats :D"
+    send_texts(@game, message)
+  end
+end
+
+def send_texts(game, message)
+  secret_hash = YAML.load_file("super-secret.yml")
+  account_sid = secret_hash["development"]["twilio_account_sid"]
+  auth_token = secret_hash["development"]["twilio_auth_token"]
+  client = Twilio::REST::Client.new account_sid, auth_token
+
+  from = "+18478137513"
+
+  puts message
+
+  game.players.each do |player|
+    if player.phone_allowed? == "yes"
+      client.account.messages.create(
+        from: from,
+        to: "+17082123489",
+        body: message
+      )
+    end
   end
 end
