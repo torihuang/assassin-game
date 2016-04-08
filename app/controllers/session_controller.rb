@@ -1,5 +1,5 @@
 get '/session/new' do
-  erb :login
+  erb :login, layout: false
 end
 
 post '/session' do
