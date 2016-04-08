@@ -6,8 +6,8 @@ class Game < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
+  validates :location, presence: true
+
 
 
   def set_default_status
@@ -22,6 +22,10 @@ class Game < ActiveRecord::Base
     Game.where(status: 'scheduled')
   end
 
+  def self.pending_games
+    Game.where(status: 'pending')
+  end
+
   #returns integer of non-killed people
   def active_player_count
     self.enrollments.where(killed_by_id: nil).count
@@ -29,8 +33,8 @@ class Game < ActiveRecord::Base
 
   # returns array of user/player objects in the game who aren't dead
   def active_players
-    active_enrollments = self.players.enrollments.where(killed_by_id: nil)
-    active_enrollments.select{ |enrollment| enrollment.player }
+    active_enrollments = self.enrollments.where(killed_by_id: nil)
+    active_enrollments.select{ |enrollment| enrollment.user }
   end
 
   def self.active_games

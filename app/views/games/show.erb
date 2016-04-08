@@ -4,10 +4,19 @@
   <% end %>
   <h1><%= @game.name %></h1>
   <h2><%= @game.tagline %></h2>
-  <h2 class="latitude"><%= @game.city %></h2><h2 class="longitude"><%= @game.state %></h2>
+  <h2 class="address"><%= @game.location %><%= @game.state %></h2>
   <h2><%= @game.start_date %> to <%= @game.end_date %></h2>
   <h2>Status: <%= @game.status %></h2>
+    <div class="game-stats"
+      <h2>Players: </h2>
+      <h1><%= @game.active_players.map{|object| object.user.nickname } %></h1>
+      <ul>
+        <% @game.players.each do |player| %>
+          <li><%= player.nickname %></li>
+        <% end %>
+      </ul>
 
+    </div>
   <img class='game-image-large' src=<%= @game.image_path %>>
   <div id="game-location-map">MAP HERE</div>
 

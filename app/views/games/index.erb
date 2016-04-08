@@ -1,46 +1,47 @@
 <!-- Print out games ordered by current status. Scheduled games first. Scheduled games should give you the option to join. Active and completed games should give you the option to view the game and results or current status but not join. -->
 
-<h3>Join a Game Near You</h3>
-
-<form class="button" action='/games' method='get'>
-  <input type='submit' value='Join a Game' name='join_game_button'>
+<form class="game-button" action='/games/new' method='get'>
+  <input type='submit' value='CREATE A NEW GAME' name='see_all_games_button'>
 </form>
 
-<form class="button" action='/games/new' method='get'>
-  <input type='submit' value='Create a New Game' name='see_all_games_button'>
-</form>
+<section id='all-games'>
+  <section class='pending-games'>
+  <h4>PENDING GAMES</h4>
 
-<section class='scheduled-games'>
-<h4>Scheduled Games</h4>
+  <% @pending_games.each do |game| %>
+  <a href='/games/<%= game.id %>' class='game_summary'>
+      <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
+  </a>
+  <% end %>
+  </section>
 
-<% @scheduled_games.each do |game| %>
-<div class="game_summary">
-  <div class='game-details-link'>
-    <a href='/games/<%= game.id %>'>
-        <%= erb :'games/_summary', locals: {game: game, button: true}, layout: false %>
-    </a>
-  </div>
-</div>
-<% end %>
+  <section class='scheduled-games'>
+  <h4>SCHEDULED GAMES</h4>
 
-</section>
+  <% @active_games.each do |game| %>
+  <a href='/games/<%= game.id %>' class='game_summary'>
+      <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
+  </a>
+  <% end %>
+  </section>
 
-<section class='active-games'>
-<h4>Active Games</h4>
+  <section class='active-games'>
+  <h4>ACTIVE GAMES</h4>
 
-<% @active_games.each do |game| %>
-<a href='/games/<%= game.id %>' class='game_summary'>
+  <% @active_games.each do |game| %>
+  <a href='/games/<%= game.id %>' class='game_summary'>
+      <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
+  </a>
+  <% end %>
+  </section>
+
+  <section class='completed-games'>
+  <h4>COMPLETED GAMES</h4>
+
+  <% @completed_games.each do |game| %>
+  <a href='/games/<%= game.id %>' class='game_summary'>
     <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
-</a>
-<% end %>
-</section>
-
-<section class='active-games'>
-<h4>Completed Games</h4>
-
-<% @completed_games.each do |game| %>
-<a href='/games/<%= game.id %>' class='game_summary'>
-  <%= erb :'games/_summary', locals: {game: game, button: false}, layout: false %>
-</a>
-<% end %>
+  </a>
+  <% end %>
+  </section>
 </section>

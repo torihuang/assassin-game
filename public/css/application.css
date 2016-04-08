@@ -186,7 +186,7 @@ nav ul li {
   width: 40%;
   height: 300px;
   margin: 20px 20px;
-  background-color: #252323;
+  background-color: rgba(15,14,14,0.5);
   overflow: auto;
   display: inline-block;
 }
@@ -209,21 +209,28 @@ nav ul li {
   font-size: 20px;
 }
 
+.address {
+
+}
+
 .game_summary h2 {
   font-size: 16px;
 }
 .game-image-large {
   display: inline-block;
 }
+
 .game-image-small {
   float: left;
   width: 50%;
+  margin-top: 20px;
 }
 
 .game-index-page-games {
   margin-left: 50%;
   padding: 3px;
   border-left: 1px solid #C2BDBD;
+  height: 100%;
 }
 
 .game-action-button {
@@ -251,7 +258,7 @@ form input{
   font-size: 16px;
   border-radius: 10px;
   text-align: center;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 form input[type=checkbox] {
@@ -298,4 +305,65 @@ form input[type=checkbox] {
 .welcome-button:hover {
   background-color: #DB0404;
   color: #252323;
+}
+
+#all-games a {
+  color: white;
+}
+
+.game-button input[type=submit]{
+  font-size: 25px;
+  font-family: kremlin;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+  color: #252323;
+  border: 2px solid #252323;
+  border-radius: 5px;
+  background-color: white;
+  display: block;
+  margin: 30px auto;
+}
+
+.game-button input[type=submit]:hover {
+  background-color: #DB0404;
+  color: #252323;
+}
+
+#all-games h4 {
+  font-size: 30px;
+  font-family: kremlin;
+  color: #252323;
+/*   -webkit-text-fill-color: white;  Will override color (regardless of order)
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #252323;*/
+}
+
+h3 {
+  font-size: 30px;
+  font-family: kremlin;
+  color: #252323;
+}
+
+h2 {
+  font-size: 30px;
+  color: #252323;
+}
+
+#game-rules {
+  width: 60%;
+  margin: 20px auto;
+  color: #252323;
+}
+
+#game-rules ol {
+  text-align: left;
+}
+
+#game-rules p {
+  text-align: left;
+}
+
+#game-rules ul {
+  list-style-type: none;
 }
