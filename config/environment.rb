@@ -19,6 +19,7 @@ require 'erb'
 require 'bcrypt'
 require 'faker'
 require 'pry'
+require 'net/http'
 
 # require "yaml"
 require "twilio-ruby"
