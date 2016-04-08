@@ -193,8 +193,8 @@ nav ul li {
 
 .game-location-map {
   display: inline-block;
-  width: 60%;
-  float: left;
+  width: 200px;
+  height: 200px;
 }
 
 .game-details-link {
@@ -212,7 +212,9 @@ nav ul li {
 .game_summary h2 {
   font-size: 16px;
 }
-
+.game-image-large {
+  display: inline-block;
+}
 .game-image-small {
   float: left;
   width: 50%;

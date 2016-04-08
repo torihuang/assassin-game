@@ -7,7 +7,6 @@
 
 <% @scheduled_games.each do |game| %>
 <div class="game_summary">
-  <div class="game-location-map">MAP HERE</div>
   <div class='game-details-link'>
     <a href='/games/<%= game.id %>'>
         <%= erb :'games/_summary', locals: {game: game, button: true}, layout: false %>
