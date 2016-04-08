@@ -1,14 +1,15 @@
 <section id='game-show-page'>
-  <% if @game.creator_id == current_user.id && (@game.status == 'scheduled' || @game.status == 'pending') %>
+  <% if current_user && @game.creator_id == current_user.id && (@game.status == 'scheduled' || @game.status == 'pending') %>
     <a class='game-action-button' href='/games/<%= @game.id %>/start' id='start-game-button'>Start Game</a>
   <% end %>
   <h1><%= @game.name %></h1>
   <h2><%= @game.tagline %></h2>
-  <h2><%= @game.city %>, <%= @game.state %></h2>
+  <h2 class="latitude"><%= @game.city %></h2><h2 class="longitude"><%= @game.state %></h2>
   <h2><%= @game.start_date %> to <%= @game.end_date %></h2>
   <h2>Status: <%= @game.status %></h2>
 
   <img class='game-image-large' src=<%= @game.image_path %>>
+  <div id="game-location-map">MAP HERE</div>
 
   <p><%= @game.description %></p>
   <% if logged_in? && !@game.enrolled?(current_user) %>

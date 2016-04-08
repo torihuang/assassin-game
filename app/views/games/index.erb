@@ -6,10 +6,15 @@
 <h4>Scheduled Games</h4>
 
 <% @scheduled_games.each do |game| %>
-<a href='/games/<%= game.id %>' class='game_summary'>
-    <%= erb :'games/_summary', locals: {game: game, button: true}, layout: false %>
-</a>
+<div class="game_summary">
+  <div class='game-details-link'>
+    <a href='/games/<%= game.id %>'>
+        <%= erb :'games/_summary', locals: {game: game, button: true}, layout: false %>
+    </a>
+  </div>
+</div>
 <% end %>
+
 </section>
 
 <section class='active-games'>

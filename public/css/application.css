@@ -183,12 +183,26 @@ nav ul li {
 }
 
 .game_summary {
-  width: 450px;
+  width: 40%;
   height: 300px;
-  float: left;
   margin: 20px 20px;
   background-color: #252323;
   overflow: auto;
+  display: inline-block;
+}
+
+#game-location-map {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.game-details-link {
+  display: inline-block;
+  float: right;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .game_summary h1 {
@@ -198,7 +212,9 @@ nav ul li {
 .game_summary h2 {
   font-size: 16px;
 }
-
+.game-image-large {
+  display: inline-block;
+}
 .game-image-small {
   float: left;
   width: 50%;
@@ -227,4 +243,18 @@ nav ul li {
 
 #game-show-page {
   margin-top: 30px;
+}
+
+form input{
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+form input[type=checkbox] {
+  width: 20px;
+  height: 20px;
 }

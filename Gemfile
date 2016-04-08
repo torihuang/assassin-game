@@ -3,7 +3,7 @@ ruby '2.2.4'
 
 # PostgreSQL driver
 gem 'pg'
-
+gem 'google-api-client'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -17,6 +17,9 @@ gem 'shotgun'
 
 gem 'bcrypt'
 gem 'faker', '~>1.6.3'
+
+# gem "yaml"
+gem "twilio-ruby"
 
 group :test do
   gem 'shoulda-matchers'
