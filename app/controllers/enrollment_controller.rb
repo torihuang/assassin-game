@@ -34,24 +34,16 @@ put '/enrollments/:id' do
     killer_record.target = new_corpse_record.target
     killer_record.save
 
-    puts "KILL"
-    puts "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
     message = "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
     send_texts(game, message)
     redirect "/users/#{killer.id}"
   else
     # end game
     @game = @enrollment.game
-    @game.assign_attributes(status: "completed",
-                            winner_id: killer.id,
-                            end_date: DateTime.now.to_s
-      )
+    @game.assign_attributes(status: "completed", winner_id: killer.id, end_date: DateTime.now.to_s)
     puts "Congratulations, #{killer}!"
     @game.save
 
-
-    puts "GAME OVER"
-    puts "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
     message = "The game is over, #{killer.nickname} is the winner! Congrats :D"
     send_texts(@game, message)
   end
