@@ -1,5 +1,5 @@
 get '/users/new' do
-  erb :'users/new'
+  erb :'users/new', layout: false
 end
 
 get '/users/:id' do

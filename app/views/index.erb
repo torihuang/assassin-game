@@ -1,7 +1,9 @@
-<form class="button" action='/games' method='get'>
-  <input type='submit' value='Join a Game' name='join_game_button'>
-</form>
-
-<form class="button" action='/games/new' method='get'>
-  <input type='submit' value='Create a New Game' name='see_all_games_button'>
-</form>
+<section id='intro-buttons'>
+  <h1 id='intro-assassin'>ASSASSIN</h1>
+  <% if session[:user_id] %>
+    <a href="/games" class='welcome-button' id='enter'>ENTER</a>
+  <% else %>
+    <a href="/session/new" class='welcome-button' id='login'>LOGIN</a>
+    <a href="/users/new" class='welcome-button' id='register'>REGISTER</a>
+  <% end %>
+</section>
