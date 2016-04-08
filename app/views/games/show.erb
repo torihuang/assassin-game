@@ -9,7 +9,6 @@
   <h2>Status: <%= @game.status %></h2>
     <div class="game-stats"
       <h2>Players: </h2>
-      <h1><%= @game.active_players.map{|object| object.user.nickname } %></h1>
       <ul>
         <% @game.players.each do |player| %>
           <li><%= player.nickname %></li>

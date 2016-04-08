@@ -4,35 +4,45 @@ put '/enrollments/:id' do
   @enrollment = Enrollment.find(params[:id])
   killer = @enrollment.user
   game = @enrollment.game
-  # puts killer.first_name
-  # puts "is the killer"
+  puts "=================ENROLLMENT ID=================="
+  puts @enrollment.id
+  puts "==================================="
+
   new_corpse = @enrollment.target
-  # puts new_corpse.first_name
-  # puts "is now dead"
+
   new_corpse_record = new_corpse.enrollments.find_by(game_id: game.id)
-  new_corpse_record.killed_by_id = killer.id
-  new_corpse_record.save
+  new_corpse_record.update(killed_by_id: killer.id)
+  # new_corpse_record.save
   killer.increment!(:kill_count)
   # binding.pry
   message = ""
+  puts "iiiiiiiiiiiiiiiiiii"
+  puts @enrollment.game.active_player_count
+  puts "||||||||||||||||||||||||||||||||||||"
   if @enrollment.game.active_player_count > 1
     # continue game
+    puts "================ CONTINUES===================="
     killer_record = killer.enrollments.find_by(game_id: game.id)
     killer_record.target = new_corpse_record.target
     killer_record.save
-    killer.increment!(:win_count)
+
     message = "#{@enrollment.target.nickname} was assassinated by #{killer.nickname}! Watch out, you never know who might be next..."
-    send_texts(game, message)
+    #send_texts(game, message)
     redirect "/users/#{killer.id}"
   else
     # end game
+    puts "================GAME OVER===================="
+    killer.increment!(:win_count)
     @game = @enrollment.game
-    @game.assign_attributes(status: "completed", winner_id: killer.id, end_date: DateTime.now.to_s)
+    puts @game
+    puts @game.status
+    @game.update!(status: "completed", winner_id: killer.id, end_date: DateTime.now.to_s)
+    puts @game.status
     puts "Congratulations, #{killer}!"
-    @game.save
+    # @game.save
     redirect "/games/#{ @game.id }"
     message = "The game is over, #{killer.nickname} is the winner! Congrats :D"
-    send_texts(@game, message)
+    # send_texts(@game, message)
   end
 end
 
