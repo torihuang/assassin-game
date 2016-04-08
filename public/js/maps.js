@@ -9,7 +9,7 @@ function initMap(latitude, longitude) {
   var marker=new google.maps.Marker({
   position: mapOptions.center,
   });
-  console.log(mapBox)
+
   var map = new google.maps.Map(mapBox, mapOptions)
   marker.setMap(map);
 }
