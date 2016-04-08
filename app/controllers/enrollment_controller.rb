@@ -71,7 +71,7 @@ def send_texts(game, message)
     if player.phone_allowed? == "yes"
       client.account.messages.create(
         from: from,
-        to: "+17082123489",
+        to: player.phone,
         body: message
       )
     end
