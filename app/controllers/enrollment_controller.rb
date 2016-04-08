@@ -1,13 +1,3 @@
-post '/enrollment' do
-  enrollment = Enrollment.new(user: current_user, game_id: params[:game_id])
-
-  if enrollment.save
-    redirect "/games/#{params[:game_id]}"
-  else
-    @errors = enrollment.errors.full_messages
-  end
-end
-
 #EB NOTE
 # Currently, it still lists that player's next target from their most recent enrollment on their show page. That's a thing to configure. I tested this code by seeding the DB with 3 users and killing them one after the other, it seems to work. -EB
 

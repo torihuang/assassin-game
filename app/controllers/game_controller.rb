@@ -37,6 +37,7 @@ post '/games/:id/enrollments' do
   @game = Game.find(params[:id])
   if @game
     @new_enrollment = Enrollment.create(user: current_user, game: @game)
+    redirect "/games/#{@game.id}"
   else
     erb :'404'
   end
