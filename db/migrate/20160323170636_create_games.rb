@@ -5,8 +5,8 @@ class CreateGames < ActiveRecord::Migration
       t.string    :tagline
       t.string    :description, null: false
       t.string    :image_path
-      t.string    :city, null: false
-      t.string    :state, null: false
+      t.string    :location, null: false
+      t.string    :state
 
       t.datetime  :start_date
       t.datetime  :end_date

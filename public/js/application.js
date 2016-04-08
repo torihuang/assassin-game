@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  initMap()
+  getLatLng()
+  // initMap()
 
 });
 

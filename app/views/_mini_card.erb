@@ -4,7 +4,7 @@
   details: {
     title,
     tagline,
-    city,
+    location,
     state,
     start_date,
     end_date,
@@ -28,7 +28,7 @@
   <section class='left-side'>
     <h1><%= mini_card_hash[:title] %></h1>
     <h2><%= mini_card_hash[:tagline] %></h2>
-    <h2><%= mini_card_hash[:city] %>, <%= mini_card_hash[:state] %></h2>
+    <h2><%= mini_card_hash[:location] %>, <%= mini_card_hash[:state] %></h2>
     <h2><%= mini_card_hash[:start_date] %> to <%= mini_card_hash[:end_date] %></h2>
     <img class='game-image-small' src=<%= mini_card_hash[:image_path] %>>
   </section>
@@ -38,7 +38,7 @@
       <h2><%= enrollment.target.first_name %> <%= enrollment.target.last_name %></h2>
       <img class='target-image-large' src=<%= enrollment.target.image_path %>>
   <!--     <h2><%= game.tagline %></h2>
-      <h2><%= game.city %>, <%= game.state %></h2>
+      <h2><%= game.location %>, <%= game.state %></h2>
       <%= current_user %> -->
     <% else %>
       <%= game.status %>

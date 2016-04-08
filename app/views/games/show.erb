@@ -4,7 +4,7 @@
   <% end %>
   <h1><%= @game.name %></h1>
   <h2><%= @game.tagline %></h2>
-  <h2 class="latitude"><%= @game.city %></h2><h2 class="longitude"><%= @game.state %></h2>
+  <h2 class="address"><%= @game.location %><%= @game.state %></h2>
   <h2><%= @game.start_date %> to <%= @game.end_date %></h2>
   <h2>Status: <%= @game.status %></h2>
 

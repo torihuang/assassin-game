@@ -11,3 +11,14 @@ function initMap() {
   console.log(mapBox)
   var map = new google.maps.Map(mapBox, mapOptions)
 }
+
+function getLatLng() {
+  var address = $(".address").text()
+  console.log(address)
+  var addressObject = {"address": address}
+  $.ajax({
+    url: "/addresses",
+    data: addressObject,
+    method: "POST"
+  });
+}
