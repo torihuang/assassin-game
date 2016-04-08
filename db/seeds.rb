@@ -1,4 +1,5 @@
 # city and state values have been replaced with lat and long
+
 count = 0
 10.times do
   sub_count = count * 10
@@ -24,3 +25,26 @@ count = 0
 end
 
 User.create(password: "password", first_name: "Tori", last_name: "Huang", nickname: "killa", email: "tori@gmail.com", image_path: "https://avatars0.githubusercontent.com/u/15917624?v=3&u=edbeef2f4e321e0e3f69e2410c87d86be7b355ac&s=140", kill_count: 0, game_count: 0, win_count: 0)
+
+game = Game.create!(
+  name: "test game",
+  description: "test",
+  city: "chicago",
+  state: "IL",
+  )
+
+3.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "password",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    nickname: "Scooter"
+    )
+end
+
+Enrollment.create!(user_id: 1, game_id: 1, target_id: 2)
+Enrollment.create!(user_id: 2, game_id: 1, target_id: 3)
+Enrollment.create!(user_id: 3, game_id: 1, target_id: 1)
+
+User.first.update(phone: "+17082123489", phone_allowed?: "yes")

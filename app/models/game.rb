@@ -22,6 +22,17 @@ class Game < ActiveRecord::Base
     Game.where(status: 'scheduled')
   end
 
+  #returns integer of non-killed people
+  def active_player_count
+    self.enrollments.where(killed_by_id: nil).count
+  end
+
+  # returns array of user/player objects in the game who aren't dead
+  def active_players
+    active_enrollments = self.players.enrollments.where(killed_by_id: nil)
+    active_enrollments.select{ |enrollment| enrollment.player }
+  end
+
   def self.active_games
     Game.where(status: 'active')
   end
@@ -32,6 +43,10 @@ class Game < ActiveRecord::Base
 
   def self.aborted_games
     Game.where(status: 'aborted')
+  end
+
+  def enrolled?(user)
+    !self.enrollments.includes(:user_id).where('user_id = ?', user.id).empty?
   end
 
   def assign_targets

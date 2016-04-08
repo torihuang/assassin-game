@@ -226,7 +226,7 @@ nav ul li {
   border-left: 1px solid #C2BDBD;
 }
 
-#start-game-button {
+.game-action-button {
   margin-top: 30px;
   border: 2px solid #DB0404;
   border-radius: 5px;
@@ -243,4 +243,18 @@ nav ul li {
 
 #game-show-page {
   margin-top: 30px;
+}
+
+form input{
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+form input[type=checkbox] {
+  width: 20px;
+  height: 20px;
 }

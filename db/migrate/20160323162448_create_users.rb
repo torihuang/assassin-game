@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :last_name
       t.string    :nickname
       t.string    :email
+      t.string    :phone
+      t.string    :phone_allowed?, default: "no"
       t.string    :image_path
       t.string    :bio
       t.string    :password_hash
