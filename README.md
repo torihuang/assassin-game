@@ -2,7 +2,7 @@
 
 ## Learning Ruby
 
-This assassin game started as my first CRUD app. From there, I gained interest from a few of my fellow Dev Bootcamp students who also wanted to help create the game! It is still in progress (please remember, it was all of our first team CRUD apps!), but you can check out the game as is on
+This assassin game started as my first CRUD app. From there, I gained interest from a few of my fellow Dev Bootcamp students who also wanted to help create the game! It is still in progress (please remember, it was the first CRUD app for the entire team!), but you can check out the game as is on
 [Heroku](dbc-assassin-game.herokuapp.com).
 
 ## Overview
