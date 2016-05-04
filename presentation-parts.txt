@@ -1,0 +1,18 @@
+TORI
+Explain assassin
+
+JONES
+Show registration, but only login
+Overview of the game page
+View game, show how you can click through and select game
+**MAP API**
+
+TAYDAUG
+**GEOCODE**
+Before a game starts, you can join a game (Click join game)
+Go to your account, and see new game
+
+EMILY
+Kill some targets, view targets change
+Get text message
+**Explain TWILIO API**
